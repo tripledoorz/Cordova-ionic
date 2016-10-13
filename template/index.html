@@ -1,0 +1,81 @@
+<ion-view title="街蜜" hide-nav-bar="true" style="background:#F5F5F5;">
+  <ion-header-bar class="bar bar-header item-input-inset " style="background: #ff4c89">
+    <label class="item-input-wrapper" style="background: #ef3e7e;">
+      <i class="icon ion-ios-search placeholder-icon" style="font-size: 20px;color: #FFFFFF" ></i>
+      <input type="search" value="搜索你喜欢的商品" style="background: #ef3e7e;color: #FFFFFF">
+    </label>
+  </ion-header-bar>
+  <ion-content>
+    <!--<label class="item item-input">-->
+      <!--<i class="icon ion-ios-search placeholder-icon" style="font-size: 20px"></i>-->
+      <!--<input type="text" placeholder="搜索商品">-->
+    <!--</label>-->
+    <!-- 轮播图 -->
+    <ion-slide-box class="banner" does-continue="true" auto-play="true"  show-pager="true" slide-interval="3000">
+      <ion-slide ng-repeat="banner in banners">
+        <div class="box blue" ng-style="banner.goodsBenUrl | bannerFilter">
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+    <!--分类-->
+    <div class="row" style="text-align: center;color: #b2b2b2;font-size: 12px;font-weight:600">
+      <div class="col">
+        <button class="button button-block button-assertive ion-ios-keypad-outline " style="font-size: 24px;border-radius:8px"></button>分类
+      </div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"> <button class="button button-block button-energized ion-ios-cart-outline" style="font-size: 24px;border-radius:8px"></button>购物车</div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"> <button class="button button-block button-positive ion-ios-paper-outline" style="font-size: 24px;border-radius:8px"></button>订单</div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"> <button class="button button-block button-balanced ion-ios-people-outline" style="font-size: 24px;border-radius:8px"></button>用户中心</div>
+    </div>
+    <!--更多精彩-->
+    <!--<div class="button-bar" style="background: #FFFFFF ;">-->
+      <!--<a class="button" style="font-size: 13px"><button class="button button-block button-assertive ion-ios-keypad-outline" style="font-size: 24px;"></button>分类</a>-->
+      <!--<a class="button" style="font-size: 13px"><button class="button button-block button-energized ion-ios-cart-outline" style="font-size: 24px;"></button>购物车</a>-->
+      <!--<a class="button" style="font-size: 13px"><button class="button button-block button-positive ion-ios-paper-outline" style="font-size: 24px;"></button>订单</a>-->
+      <!--<a class="button" style="font-size: 13px" ><button class="button button-block button-balanced ion-ios-people-outline" style="font-size: 24px;"></button>用户中心</a>-->
+    <!--</div>-->
+    <div class="list">
+      <div class="item item-button-right">
+        猜你喜欢
+        <button class="button button-clear button-dark" style="font-size: 16px">
+          更多   <i class="ion-ios-arrow-right" ></i>
+        </button>
+      </div>
+
+
+     <!--列表 -->
+    <!-- <ion-list  >
+      <ion-item ui-sref="home.detail({id:item.goodsID})" ng-repeat="item in list" class="item item-thumbnail-left " >
+        <img ng-src="{{item.goodsListImg}}">
+        <p>{{item.goodsName}}</p>
+      </ion-item>
+    </ion-list>-->
+<div class="row" ng-repeat="item in list">
+    <div class="list card col "  >
+      <div class="item item-image "  >
+        <img ng-src="{{item.goodsListImg}}" ui-sref="home.detail({id:item.goodsID})">
+        <div class="item item-icon-right assertive"  style="text-align: left">
+          <a href="#"><i class="icon ion-ios-cart dark"></i></a>
+          <p>{{item.goodsName}}</p>
+          ¥{{item.price}}
+        </div>
+      </div>
+    </div>
+
+
+</div>
+
+
+
+    <ion-infinite-scroll
+      ng-hide="loadLast"
+      on-infinite="loadMore()"
+      distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,65 @@
+<ion-view title="商品分类"  hide-nav-bar="true" >
+  <div class="bar bar-header bar-balanced " style="background:#ff4c89;">
+    <button  class="icon ion-navicon button button-clear button-light" style="font-size: 30px" ng-click="toggleClass()"></button>
+    <h1 class="title">商品分类</h1>
+  </div>
+  <ion-side-menus>
+    <!-- 中间内容 -->
+    <ion-side-menu-content>
+      <ion-header-bar>
+      </ion-header-bar>
+      <ion-content>
+        <ion-list>
+          <ion-item ng-repeat="info in list" class="item item-thumbnail-left assertive"  href="#/home/detail/{{info.goodsID}}">
+            <img ng-src="{{info.goodsListImg}}">
+            <p>{{info.goodsName}}</p>
+            <i>¥{{info.price}}</i>
+
+            <!--<i>¥{{info.count}}</i>-->
+          </ion-item>
+        </ion-list>
+        <ion-infinite-scroll
+                ng-hide="loadLast"
+                on-infinite="loadMore()"
+                distance="1%">
+        </ion-infinite-scroll>
+      </ion-content>
+    </ion-side-menu-content>
+
+    <!-- 左侧菜单 -->
+
+    <ion-side-menu side="left" width="150">
+
+      <ul class="list">
+        <li class="item  item-icon-right" ng-repeat="info in classList" ng-click="changeByClass(info,$index)">
+          <i class="icon ion-ios-arrow-right"></i>
+          {{info.className}}
+
+        </li>
+      </ul>
+
+    </ion-side-menu>
+
+    <!--  &lt;!&ndash; 右侧菜单 &ndash;&gt;
+      <ion-side-menu side="right">
+      </ion-side-menu>-->
+  </ion-side-menus>
+
+</ion-view>
+
+<!--<ion-view title="商品分类">
+     <ion-content class="has-header">
+       <ion-list>
+         <ion-item ng-repeat="info in list" href="#/home/detail/{{info.goodsID}}" class="item item-thumbnail-left" ng-click="detail(info)">
+           <img ng-src="{{info.goodsListImg}}">
+           <h2>{{info.className}}</h2>
+           <p>{{info.goodsName}}</p>
+         </ion-item>
+       </ion-list>
+       <ion-infinite-scroll
+         ng-hide="loadLast"
+         on-infinite="loadMore()"
+         distance="1%">
+       </ion-infinite-scroll>
+     </ion-content>
+</ion-view>-->

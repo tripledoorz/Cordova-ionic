@@ -1,0 +1,72 @@
+
+<ion-tabs class="tabs-striped " >
+  <ion-tab title="首页" href="#/home/index" >
+    <ion-nav-view name="index"></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="分类" href="#/home/class"  >
+    <ion-nav-view name="class"></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="购物车" href='#/home/car'>
+  	<ion-nav-view name='car'></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="我的" href='#/home/self'>
+  	<ion-nav-view name='self'></ion-nav-view>
+  </ion-tab>
+</ion-tabs>
+
+<script id='login.html' type="text/ng-template">
+
+  <ion-header-bar class="bar bar-header " >
+    请先登录
+  </ion-header-bar>
+  <ion-view title="登陆页面" >
+    <ion-content>
+      <div class="list list-inset">
+        <label class="item item-input">
+          <i class="icon ion-person" ></i>
+          <input type="text" placeholder="Username"  ng-model='user.name'>
+        </label>
+        <label class="item item-input"  >
+          <i class="icon ion-locked"></i>
+          <input type="password"placeholder="Password" ng-model='user.pass'>
+        </label>
+      </div>
+      <button class="button button-full ng-click='login(user) " style="background: #ef3e7e;color: #FFFFFF">登陆</button>
+      <button class="button button-full button-balanced " style="color: #FFFFFF">注册</button>
+      <p class="assertive">登录即同意《街蜜用户协议》<a href="#">忘记密码 </a></p>
+
+        <div class="item item-button-right">
+          其他登录方式
+        </div>
+
+
+
+      <div class="row" style="text-align: center;color: #b2b2b2;font-size: 12px;font-weight:600">
+        <div class="col">
+          <i class="iconfont">&#xe601;</i>
+        </div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"> <button class="button button-balanced"><i class="iconfont">&#xe600;</i></button></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"> <i class="iconfont">&#xe601;</i>QQ</div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"> <i class="iconfont">&#xe602;</i>微博</div>
+      </div>
+    </ion-content>
+
+  </ion-view>
+  <!--<div class="list">-->
+  <!--<label class="item item-input">-->
+    <!--<input type="text" ng-model='user.name' placeholder="请输入用户名">-->
+  <!--</label>-->
+  <!--<label class="item item-input">-->
+    <!--<input type="password" ng-model='user.pass' placeholder="请输入密码">-->
+  <!--</label>-->
+  <!--<label class="item item-input">-->
+    <!--<button class='button button-balanced' ng-click='login(user)'>登录</button>-->
+  <!--</label>-->
+<!--</div>-->
+</script>
